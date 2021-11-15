@@ -14,12 +14,48 @@ namespace Shop.Data.Mocks
 			get
 			{
 				return new List<Product> { 
-					new Product{Name = "Морковь", Image = "", Price = 20, Category = _categories.AllCategories.ToList()[1], Description = "Двулетнее растение,овощная культура,подвид вида морковь дикая."},
-					new Product{Name = "Кукуруза", Image = "", Price = 40, Category = _categories.AllCategories.ToList()[2], Description = "Однолетнее травянистое культурное растение,единственный культурный представитель рода Кукуруза семейства Злаки."},
-					new Product{Name = "Огурец", Image = "", Price = 60, Category = _categories.AllCategories.ToList()[0], Description = "Однолетнее травянистое растение,вид рода Огурец семейства Тыквенные,овощная культура."},
-					new Product{Name = "Укроп", Image = "", Price = 30, Category = _categories.AllCategories.ToList()[0], Description = "Монотипный род короткоживущих однолетних травянистых растений семейства Зонтичные."},
-					new Product{Name = "Перец", Image = "", Price = 50, Category = _categories.AllCategories.ToList()[2], Description = "Популярная овощная культура с насыщенным своеобразным вкусом и приятным ароматом."},
-					new Product{Name = "Помидор", Image = "", Price = 10, Category = _categories.AllCategories.ToList()[1], Description = "Однолетнее или многолетнее травянистое растение,вид рода Паслён семейства Паслёновые."}
+					new Product{
+						Name = "Морковь", 
+						ImageSrc = "/img/carrot.jpg", 
+						Price = 20, 
+						Category = _categories.AllCategories.ToList()[1], 
+						Description = "Двулетнее растение,овощная культура,подвид вида морковь дикая."
+					},
+					new Product{
+						Name = "Кукуруза", 
+						ImageSrc = "/img/corn.jpg", 
+						Price = 40, 
+						Category = _categories.AllCategories.ToList()[2], 
+						Description = "Однолетнее травянистое культурное растение,единственный культурный представитель рода Кукуруза семейства Злаки."
+					},
+					new Product{
+						Name = "Огурец", 
+						ImageSrc = "/img/cucumber.jpg", 
+						Price = 60, 
+						Category = _categories.AllCategories.ToList()[0], 
+						Description = "Однолетнее травянистое растение, вид рода Огурец семейства Тыквенные, овощная культура."
+					},
+					new Product{
+						Name = "Укроп", 
+						ImageSrc = "/img/dill.jpg", 
+						Price = 30, 
+						Category = _categories.AllCategories.ToList()[0], 
+						Description = "Монотипный род короткоживущих однолетних травянистых растений семейства Зонтичные."
+					},
+					new Product{
+						Name = "Перец", 
+						ImageSrc = "/img/pepper.jpg", 
+						Price = 50, 
+						Category = _categories.AllCategories.ToList()[2], 
+						Description = "Популярная овощная культура с насыщенным своеобразным вкусом и приятным ароматом."
+					},
+					new Product{
+						Name = "Помидор", 
+						ImageSrc = "/img/tomato.jpg", 
+						Price = 10, 
+						Category = _categories.AllCategories.ToList()[1], 
+						Description = "Однолетнее или многолетнее травянистое растение,вид рода Паслён семейства Паслёновые."
+					}
 				};
 			}
 		}

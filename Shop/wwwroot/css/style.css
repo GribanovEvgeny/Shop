@@ -1,0 +1,237 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container{
+    max-width: 1090px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+}
+
+nav *{
+    margin: auto 0px;
+}
+
+nav #logo{
+    padding: 10px 20px;
+    color: rgb(50, 50, 50);
+    font-size: 18px;
+}
+
+nav #country{
+    color: rgb(0, 145, 153);
+    font-size: 14px;
+    text-decoration: underline;
+}
+
+#basket{
+    position: relative;
+    display: block;
+}
+
+#basket div{
+    position: absolute;
+    font-size: 12px;
+    background-color: red;
+    width: 20px;
+    height: 20px;
+    color: white;
+    border-radius: 50%;
+    top: -5px;
+    right: -10px;
+    align-items: center;
+    padding: 0px;
+}
+
+#basket div p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+
+.blockHeading{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.blockHeading .comboboxes{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.blockHeading h1{
+    margin: 50px 0px 0px 10px;
+}
+
+section{
+    position: relative;
+}
+
+section li{
+    float: left;
+    box-shadow: 0 0 15px 2px rgb(240, 240, 240);
+    position: relative;
+}
+
+#inShop li{
+    max-width: 300px;
+    min-width: 200px;
+    height: 450px;
+    margin: 20px 30px;
+    text-align: left;
+}
+
+#inBacket li{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 30px;
+}
+
+#inBacket li .inBacket_name{
+    margin: 35px 40px;
+    font-size: 30px;
+}
+
+#inBacket li .inBacket_price{
+    margin: 20px 40px;
+    font-size: 20px;
+}
+
+#inBacket li .inBacket_rightrow{
+    display: flex;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+#inBacket li .inBacket_rightrow .inBacket_minus{
+    position: absolute;
+    left: 40px;
+    bottom: -5px;
+    font-size: 30px;
+}
+
+#inBacket li .inBacket_rightrow .inBacket_minus:hover{
+    cursor: pointer;
+}
+
+#inBacket li .inBacket_rightrow .inBacket_count{
+    margin: auto;
+}
+
+#inBacket li .inBacket_rightrow .inBacket_plus{
+    position: absolute;
+    right: 40px;
+    bottom: -5px;
+    font-size: 30px;
+}
+
+#inBacket li .inBacket_rightrow .inBacket_plus:hover{
+    cursor: pointer;
+}
+
+section .resultInBacket{
+    display: inline-block;
+}
+
+.container .buttonToPay{
+    background-color: crimson;
+    padding: 20px 40px;
+    border-radius: 50px;
+    color: white;
+    display: inline-block;
+    margin: 10px -20px 100px 0px;
+}
+
+.container .buttonToPay:hover{
+    cursor: pointer;
+}
+
+
+section li img{
+    object-fit: contain;
+    width: 100%;
+    height: 200px;
+}
+
+section li h5{
+    font-size: 18px;
+    margin: 20px 0px 10px 30px;
+}
+
+section li p{
+    margin: 10px 30px;
+}
+
+section li .buttonBuy{
+    position: absolute;
+    display: block;
+    padding: 20px 30px;
+    margin: 20px 0px 20px 30px;
+    background-color: crimson;
+    border-radius: 40px;
+    color: white;
+    bottom: 0px;
+}
+
+section li .buttonBuy:hover{
+    cursor: pointer;
+}
+
+.hidden{
+    display: none;
+}
+
+/*popup*/
+
+.popup{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0px;
+    left: 0px;
+}
+
+.popup_body{
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+.popup_content{
+    background-color: white;
+    color: black;
+    max-width: 800px;
+    padding: 30px 50px;
+    position: relative;
+}
+
+.popup_close{
+    position:absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    color: black;
+}
+
+.popup_title{
+    font-size: 40px;
+    margin: 0px 40px 25px 0px;
+}
+

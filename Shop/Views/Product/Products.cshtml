@@ -1,0 +1,53 @@
+﻿@using Shop.Data.Models
+@model IEnumerable<Product>
+
+@{
+	Layout = "_Layout";
+}
+
+<div class="blockHeading">
+	<h1>Товары</h1>
+	<div class="comboboxes">
+		<select id="comboSort">
+			<option value="upPrice">По возрастанию цены</option>
+			<option value="downPrice">По убыванию цены</option>
+		</select>
+		<select id="comboFilter">
+			<option value="all">Все</option>
+			@{
+				foreach (var category in ViewBag.Categories.AllCategories)
+				{
+					<option value="all">@category.Name</option>
+				}
+			}
+		</select>
+	</div>
+</div>
+<section>
+	<ul id="inShop">
+		@{
+			foreach (var product in Model)
+			{
+				<li>
+					<img src=@product.ImageSrc alt=@product.Name>
+					<h5>@product.Name</h5>
+					<p>@product.Description</p>
+					<p class="buttonBuy">@product.Price руб</p>
+				</li>
+			}
+		}
+	</ul>
+</section>
+@*<div id="popupCountry" class="popup hidden">
+	<div class="popup_body">
+		<div class="popup_content">
+			<a href="#" class="popup_close">X</a>
+			<div class="popup_title">Выберите город</div>
+			<ul>
+				<li><a href=# class="inputCountry" data-country="Москва">Москва</a></li>
+				<li><a href=# class="inputCountry" data-country="Пермь">Пермь</a></li>
+				<li><a href=# class="inputCountry" data-country="Екатеринбург">Екатеринбург</a></li>
+			</ul>
+		</div>
+	</div>
+</div>*@

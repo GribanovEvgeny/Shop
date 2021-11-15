@@ -6,7 +6,7 @@ using Shop.Data.Models;
 
 namespace Shop.Data.Interfaces
 {
-	interface IProduct
+	public interface IProduct
 	{
 		IEnumerable<Product> Products { get; /*set;*/ }
 		Product GetProduct(int ProductId);
