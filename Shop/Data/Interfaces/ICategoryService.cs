@@ -6,8 +6,8 @@ using Shop.Data.Models;
 
 namespace Shop.Data.Interfaces
 {
-	public interface ICategory
+	public interface ICategoryService
 	{
-		IEnumerable<Category> AllCategories { get; }
+		IEnumerable<Category> Categories { get; }
 	}
 }

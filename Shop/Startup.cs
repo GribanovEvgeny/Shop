@@ -25,8 +25,8 @@ namespace Shop
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddTransient<IProduct, MockProduct>();   // связь интерфеса с mock-файлом
-			services.AddTransient<ICategory, MockCategory>();   // связь интерфеса с mock-файлом
+			services.AddTransient<IProductService, MockProduct>();   // связь интерфеса с mock-файлом
+			services.AddTransient<ICategoryService, MockCategory>();   // связь интерфеса с mock-файлом
 			services.AddRazorPages();
 			//services.AddMvc();   // подключение mvc
 			services.AddMvc(option => option.EnableEndpointRouting = false);   // чтоб UseMvcWithDefaultRoute не ругался
@@ -38,7 +38,7 @@ namespace Shop
 			app.UseDeveloperExceptionPage();   // включение отображения ошибок
 			app.UseStatusCodePages();   // отображение кодов страниц (500, 404...)
 			app.UseStaticFiles();   // отображение статических файлов
-			app.UseMvcWithDefaultRoute();   // для отображение url по умолчанию
+			app.UseMvcWithDefaultRoute();   // для отображения url по умолчанию
 		}
 	}
 }

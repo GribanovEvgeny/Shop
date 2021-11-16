@@ -7,15 +7,24 @@ using System.Threading.Tasks;
 
 namespace Shop.Data.Mocks
 {
-	public class MockCategory : ICategory
+	public class MockCategory : ICategoryService
 	{
-		public IEnumerable<Category> AllCategories
+		public IEnumerable<Category> Categories
 		{
 			get {
 				return new List<Category> {
-					new Category{ Name = "Зеленые" },
-					new Category{ Name = "Красные" },
-					new Category{ Name = "Желтые" }
+					new Category{
+						Id = 0,
+						Name = "Зеленые" 
+					},
+					new Category{
+						Id = 1,
+						Name = "Красные"
+					},
+					new Category{
+						Id = 2,
+						Name = "Желтые" 
+					}
 				};
 			}
 		}

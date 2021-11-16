@@ -86,7 +86,7 @@ section li{
     position: relative;
 }
 
-#inShop li{
+#ListProducts li {
     max-width: 300px;
     min-width: 200px;
     height: 450px;
@@ -176,7 +176,7 @@ section li p{
     margin: 10px 30px;
 }
 
-section li .buttonBuy{
+section li .buttonBuy {
     position: absolute;
     display: block;
     padding: 20px 30px;
@@ -185,9 +185,11 @@ section li .buttonBuy{
     border-radius: 40px;
     color: white;
     bottom: 0px;
+    border: 0;
+    font-size: 16px;
 }
 
-section li .buttonBuy:hover{
+section li .buttonBuy:hover {
     cursor: pointer;
 }
 

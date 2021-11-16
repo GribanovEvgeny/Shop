@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace Shop.Data.Models
 {
-	public class Category
+	public class ShopCartItem
 	{
 		public uint Id { get; set; }
-		public string Name { get; set; }
+		public uint ProductId { get; set; }
+		public uint CountProduct { get; set; }
 	}
 }

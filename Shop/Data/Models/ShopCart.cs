@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace Shop.Data.Models
 {
-	public class Category
+	public class ShopCart
 	{
-		public uint Id { get; set; }
-		public string Name { get; set; }
+		IEnumerable<uint> ShopCartItemId;
 	}
 }

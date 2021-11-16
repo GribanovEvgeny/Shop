@@ -8,31 +8,34 @@
 <div class="blockHeading">
 	<h1>Товары</h1>
 	<div class="comboboxes">
-		<select id="comboSort">
-			<option value="upPrice">По возрастанию цены</option>
-			<option value="downPrice">По убыванию цены</option>
+		<select id="comboSort" onchange="SortAndFilter()">
+			<option value="none" selected>(нет)</option>
+			<option value="PriceUp">По возрастанию цены</option>
+			<option value="PriceDown">По убыванию цены</option>
 		</select>
-		<select id="comboFilter">
-			<option value="all">Все</option>
+		<select id="comboFilter" onchange="SortAndFilter()">
+			<option selected>Все</option>
 			@{
-				foreach (var category in ViewBag.Categories.AllCategories)
+				foreach (var category in ViewBag.Categories.Categories)
 				{
-					<option value="all">@category.Name</option>
+					<option value=@category.Id>@category.Name</option>
 				}
 			}
 		</select>
 	</div>
 </div>
 <section>
-	<ul id="inShop">
+	<ul id="ListProducts">
 		@{
 			foreach (var product in Model)
 			{
 				<li>
-					<img src=@product.ImageSrc alt=@product.Name>
-					<h5>@product.Name</h5>
-					<p>@product.Description</p>
-					<p class="buttonBuy">@product.Price руб</p>
+					<form>
+						<img src=@product.ImageSrc alt=@product.Name>
+						<h5>@product.Name</h5>
+						<p>@product.Description</p>
+						<button class="buttonBuy">@product.Price руб</button>
+					</form>
 				</li>
 			}
 		}
