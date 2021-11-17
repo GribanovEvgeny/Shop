@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Shop.Data.Models
 {
-	public class ShopCart
+	public class Cart
 	{
-		IEnumerable<uint> ShopCartItemId;
+		public uint Id { get; set; }
 	}
 }

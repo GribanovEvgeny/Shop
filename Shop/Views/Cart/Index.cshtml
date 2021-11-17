@@ -1,0 +1,18 @@
+﻿@using Shop.Data.Models
+@model IEnumerable<CartItem>
+
+@{
+	Layout = null /*"_Layout"*/;
+}
+
+<div class="container">
+	<div class="blockHeading">
+		<h1>Корзина</h1>
+	</div>
+	<section>
+		<ul id="inBacket">
+		</ul>
+	</section>
+	<p class="resultInBacket"></p>
+	<p class="buttonToPay" href="#">Оплатить</p>
+</div>

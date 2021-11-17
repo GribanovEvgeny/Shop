@@ -3,9 +3,8 @@ $(document).ready(function () {
 });
 
 function SortAndFilter() {
-	let url = "/Home/SortAndFilter?methodSort=" + $('#comboSort').val() + "&categoryId=" + $('#comboFilter').val();
 	$.ajax({
-		url: url,
+		url: "/Home/SortAndFilter?methodSort=" + $('#comboSort').val() + "&categoryId=" + $('#comboFilter').val(),
 		success: function (data) {
 			RefreshList(data);
 		},
@@ -20,12 +19,23 @@ function RefreshList(newList) {
 	newList.forEach(function (product, i, newList) {
 		list.append(`
 				<li>
-					<form>
-						<img src="${product.imageSrc}" alt="${product.name}">
-						<h5>${product.name}</h5>
-						<p>${product.description}</p>
-						<button class="buttonBuy">${product.price} руб</button>
-					</form>
+					<img src="${product.imageSrc}" alt="${product.name}">
+					<h5>${product.name}</h5>
+					<p>${product.description}</p>
+					<button class="buttonBuy" onclick="PutInCart(${product.id})">${product.price} руб</button>
 				</li>`)
+	});
+}
+
+function PutInCart(ProductId) {
+	$.ajax({
+		url: "/Home/PutInCart?productId=" + ProductId,
+		success: function (data) {
+			let countCart = $('#basketCount');
+			countCart.removeClass('hidden');
+			let countCartP = $('#basketCount p');
+			countCartP.text(data);
+		},
+		cache: false
 	});
 }
