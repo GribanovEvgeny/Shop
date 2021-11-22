@@ -9,11 +9,11 @@ namespace Shop.Controllers
 {
 	public class HomeController : Controller
 	{
-		private readonly IEnumerable<Product> _productService;       // типо данные из БД
+		private readonly IEnumerable<Product> _productService;      // типо данные из БД
 		private readonly IEnumerable<Category> _categoryService;    // типо данные из БД
-		private static IEnumerable<Product> products;
-		private static Cart cart;                                          // типо данные из БД
-		private static List<CartItem> cartItems;					// типо данные из БД
+		private static IEnumerable<Product> products;               // продукты, отображаемые на странице
+		private static Cart cart;                                   // типо данные из БД
+		private static List<CartItem> cartItems;                    // типо данные из БД
 
 		public HomeController()
 		{
@@ -66,7 +66,7 @@ namespace Shop.Controllers
 						CategoryId = 1,
 						Description = "Однолетнее или многолетнее травянистое растение,вид рода Паслён семейства Паслёновые."
 					}
-				};
+				};   // типо подтягиваем данные из БД о всех продуктах
 			_categoryService = new List<Category> {
 					new Category{
 						Id = 0,
@@ -80,8 +80,8 @@ namespace Shop.Controllers
 						Id = 2,
 						Name = "Желтые"
 					}
-				}; 
-			cart = new Cart(){Id = 1};
+				};    // типо подтягиваем данные из БД о всех категориях
+			cart = new Cart() { Id = 1 };   // типо подтягиваем сущность корзины, в которой хранится ее id
 			products = _productService;
 		}
 
@@ -115,22 +115,21 @@ namespace Shop.Controllers
 
 		public ActionResult PutInCart(uint productId)
 		{
-			if(cartItems != null)
+			if (cartItems != null)
 			{
-				List<CartItem> productsInCart = cartItems.Where(i => i.CartId == cart.Id && i.ProductId == productId).ToList();
+				List<CartItem> productsInCart = cartItems.Where(i => i.CartId == cart.Id && i.ProductId == productId).ToList();   // берем нужный продукт в нужной корзине
 				if (productsInCart.Count == 0)
 					cartItems.Add(new CartItem()
 					{
 						Id = (uint)cartItems.Count(),
 						CartId = cart.Id,
 						ProductId = productId,
-						CountProduct = 1
+						CountProduct = 1,
+						ProductName = _productService.Where(i => i.Id == productId).First().Name,
+						ProductPrice = _productService.Where(i => i.Id == productId).First().Price
 					});
 				else
 					productsInCart[0].CountProduct++;
-				uint countItemInCart = 0;
-				cartItems.Where(i => i.CartId == cart.Id).ToList().ForEach(i => countItemInCart += i.CountProduct);
-				return Json(countItemInCart);
 			}
 			else
 			{
@@ -140,9 +139,31 @@ namespace Shop.Controllers
 					Id = 0,
 					CartId = cart.Id,
 					ProductId = productId,
-					CountProduct = 1
+					CountProduct = 1,
+					ProductName = _productService.Where(i => i.Id == productId).First().Name,
+					ProductPrice = _productService.Where(i => i.Id == productId).First().Price
 				}};
-				return Json(1);
+			}
+			return Json(cartItems);
+		}
+
+		public ViewResult Cart()
+		{
+			return View("Cart");
+		}
+
+		public void UpdateCartItems(int cartItemId, bool plus)
+			{
+			if(plus)
+			{
+				cartItems.Where(i => i.Id == cartItemId).First().CountProduct++;
+			}
+			else
+			{
+				if (cartItems.Where(i => i.Id == cartItemId).First().CountProduct == 1)
+					cartItems = cartItems.Where(i => i.Id != cartItemId).ToList();
+				else
+					cartItems.Where(i => i.Id == cartItemId).First().CountProduct--;
 			}
 		}
 	}

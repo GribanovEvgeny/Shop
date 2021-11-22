@@ -1,0 +1,36 @@
+﻿@*@using Shop.Data.Models
+	@model IEnumerable<CartItem>*@
+
+@{
+	Layout = "_Layout";
+}
+
+<div class="blockHeading">
+	<h1>Корзина</h1>
+</div>
+<section>
+	<ul id="inCart">
+		@*@{
+				foreach (var itemCart in Model)
+				{
+					<li>
+						<div class="inCart_name">@itemCart.ProductName</div>
+						<div class="inCart_right">
+							<div class="inCart_price">Цена: @itemCart.ProductPrice руб</div>
+							<div class="inCart_rightrow">
+								<div class="inCart_minus">–</div>
+								<div class="inCart_count">@itemCart.CountProduct</div>
+								<div class="inCart_plus">+</div>
+							</div>
+						</div>
+					</li>
+				}
+			}*@
+	</ul>
+</section>
+<div id="postList" class="hidden">
+	<p id="resultInCart"></p>
+	<p class="buttonToPay" href="#">Оплатить</p>
+</div>
+<script src="~/js/jQuery.js"></script>
+<script src="~/js/Cart.js"></script>

@@ -18,7 +18,7 @@
 			@{
 				foreach (var category in ViewBag.Categories)
 				{
-				<option value=@category.Id>@category.Name</option>
+					<option value=@category.Id>@category.Name</option>
 				}
 			}
 		</select>
@@ -28,16 +28,5 @@
 	<ul id="ListProducts">
 	</ul>
 </section>
-@*<div id="popupCountry" class="popup hidden">
-		<div class="popup_body">
-			<div class="popup_content">
-				<a href="#" class="popup_close">X</a>
-				<div class="popup_title">Выберите город</div>
-				<ul>
-					<li><a href=# class="inputCountry" data-country="Москва">Москва</a></li>
-					<li><a href=# class="inputCountry" data-country="Пермь">Пермь</a></li>
-					<li><a href=# class="inputCountry" data-country="Екатеринбург">Екатеринбург</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>*@
+<script src="~/js/jQuery.js"></script>
+<script src="~/js/Home.js"></script>
