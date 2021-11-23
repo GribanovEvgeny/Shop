@@ -1,4 +1,4 @@
-﻿@*@using Shop.Data.Models
+﻿@*@using Shop.Models
 	@model IEnumerable<CartItem>*@
 
 @{
@@ -30,7 +30,7 @@
 </section>
 <div id="postList" class="hidden">
 	<p id="resultInCart"></p>
-	<p class="buttonToPay" href="#">Оплатить</p>
+	<p class="buttonToPay" onclick="CreateOrder()" href="#">Оплатить</p>
 </div>
 <script src="~/js/jQuery.js"></script>
 <script src="~/js/Cart.js"></script>

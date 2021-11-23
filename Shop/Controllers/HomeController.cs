@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Shop.Data.Models;
+using Shop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -164,6 +164,21 @@ namespace Shop.Controllers
 					cartItems = cartItems.Where(i => i.Id != cartItemId).ToList();
 				else
 					cartItems.Where(i => i.Id == cartItemId).First().CountProduct--;
+			}
+		}
+
+		public void CreateOrder(string cartItemJson, string countryName)
+		{
+			using(ShopContext db = new ShopContext())
+			{
+				Order newOrder = new Order()
+				{
+					CartItemJson = cartItemJson,
+					DateCreate = DateTime.Now,
+					CountryName = countryName
+				};
+				db.Orders.Add(newOrder);
+				db.SaveChanges();
 			}
 		}
 	}

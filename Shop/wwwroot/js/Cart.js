@@ -78,3 +78,34 @@ function UpdateResult(price, plus, itemId) {
 		cache: false
 	});
 }
+
+function CreateOrder() {
+	let countryName = document.cookie.valueOf('country').replace('country=', '');
+	let cartItemJson = sessionStorage.getItem("productsInCart");
+	$.ajax({
+		url: "/Home/CreateOrder?cartItemJson=" + cartItemJson + "&countryName=" + countryName,
+		success: function (data) {
+
+		},
+		cache: false
+	});
+}
+
+function SetCountry(countryName) { // занести выбранную страну в куки
+	document.cookie = `country=${countryName}`;   // заносим значение в куки
+	$('#country').html(countryName);    // меняем город на странице
+	ClosePopup();
+}
+
+function OpenPopup() {  // открыть попап
+	//document.querySelector('#popupCountry').classList.remove("hidden");
+	$('#popupCountry').removeClass("hidden");
+}
+
+function ClosePopup() { // закрыть попап
+	document.querySelector('#popupCountry').classList.add("hidden");    // спрятать попап
+	if (document.cookie.match("country") == undefined) {    // если город не был выбран, хардкодим москву
+		document.cookie = `country=Москва`;
+		$('#country').html("Москва");
+	}
+}

@@ -48,7 +48,8 @@ function SetCountry(countryName) { // занести выбранную стра
 }
 
 function OpenPopup() {  // открыть попап
-	document.querySelector('#popupCountry').classList.remove("hidden");
+	//document.querySelector('#popupCountry').classList.remove("hidden");
+	$('#popupCountry').removeClass("hidden");
 }
 
 function ClosePopup() { // закрыть попап
