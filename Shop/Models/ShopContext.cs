@@ -8,7 +8,6 @@ namespace Shop.Models
 
         public ShopContext()
         {
-            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

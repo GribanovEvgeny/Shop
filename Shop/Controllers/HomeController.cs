@@ -167,7 +167,7 @@ namespace Shop.Controllers
 			}
 		}
 
-		public void CreateOrder(string cartItemJson, string countryName)
+		public ActionResult CreateOrder(string cartItemJson, string countryName)
 		{
 			using(ShopContext db = new ShopContext())
 			{
@@ -179,6 +179,8 @@ namespace Shop.Controllers
 				};
 				db.Orders.Add(newOrder);
 				db.SaveChanges();
+
+				return Json(newOrder.Id);
 			}
 		}
 	}

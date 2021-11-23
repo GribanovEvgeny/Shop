@@ -85,14 +85,14 @@ function CreateOrder() {
 	$.ajax({
 		url: "/Home/CreateOrder?cartItemJson=" + cartItemJson + "&countryName=" + countryName,
 		success: function (data) {
-
+			alert("Добавлен заказ с id=" + data);
 		},
 		cache: false
 	});
 }
 
 function SetCountry(countryName) { // занести выбранную страну в куки
-	document.cookie = `country=${countryName}`;   // заносим значение в куки
+	document.cookie = `country=${countryName}; path=/;`;   // заносим значение в куки
 	$('#country').html(countryName);    // меняем город на странице
 	ClosePopup();
 }
